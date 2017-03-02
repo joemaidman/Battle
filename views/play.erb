@@ -1,4 +1,7 @@
 <tr>
-<td name=>This is <%= @p1_name  %> V <%= @p2_name %>. Prepare to fight!"</td>
+<td>This is <%= $player_1.name  %> V <%= $player_2.name %>. Prepare to fight!"</td>
 </tr>
-<tr><td>P2 HP: <%= @p2_HP %></td></tr>
+<tr><td id="p2_hp">P2 HP: <%= @p2_HP %></td></tr>
+<form id="p1_actions" action=/attack>
+  <input type="submit" value="Attack"/>
+</form>

@@ -1,3 +1,11 @@
-# Battle
+### Battle in the Browser
 
-Week 2 Challenge at Makers Academy
+### Technologies Used
+- Rspec
+- Sinatra
+- Capybara
+
+### Contributors
+- Ashwini Mani
+- Narayan O'Hanlon
+- Joe Maidman
