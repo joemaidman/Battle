@@ -1,7 +1,10 @@
-<tr>
-<td>This is <%= $player_1.name  %> V <%= $player_2.name %>. Prepare to fight!"</td>
-</tr>
-<tr><td id="p2_hp">P2 HP: <%= @p2_HP %></td></tr>
-<form id="p1_actions" action=/attack>
-  <input type="submit" value="Attack"/>
+<h1><%= $game.player_1.name %> <em>VS</em> <%= $game.player_2.name %></h1>
+
+<h4 id="p1_hp"><%= $game.player_1.name %> HP: <%= $game.player_1.health_points %></h4>
+<h4 id="p2_hp"><%= $game.player_2.name %> HP: <%= $game.player_2.health_points %></h4>
+<%= $game.current_player.name %>, you're up
+<div id="actions">
+<form action="/attack">
+  <input type='submit' value ='Attack!'>
 </form>
+<div>

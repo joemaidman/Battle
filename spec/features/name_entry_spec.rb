@@ -9,7 +9,7 @@ feature "Players want to start a game", :type => :feature do
     end
 
     it "shows players names" do
-      expect(page).to have_text("This is #{p1_name} V #{p2_name}. Prepare to fight!")
+      expect(page).to have_text("#{p1_name} VS #{p2_name}")
     end
 
   end

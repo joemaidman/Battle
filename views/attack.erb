@@ -1,1 +1,4 @@
-<td id="last_action"><%= $player_1.name  %> attacked <%= $player_2.name %></td>
+<h1><%= $game.player_1.name %> attacked <%= $game.player_2.name %>!</h1>
+<form action="/play">
+  <input type="submit" value="Next Turn"/>
+</form>

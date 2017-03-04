@@ -1,32 +1,30 @@
 require 'sinatra/base'
 require_relative 'lib/player'
+require_relative 'lib/game'
+
 class Battle < Sinatra::Base
 
   set :sessions, true
-
-  # use Rack::Session::Cookie, :key => 'rack.session',
-  #                            :path => '/',
-  #                            :secret => 'your_secret'
 
   get '/' do
     erb(:index)
   end
 
   post '/names' do
-    $player_1 = Player.new(params[:name_player_one])
-    $player_2 = Player.new(params[:name_player_two])
+    $game = Game.new(Player.new(params[:name_player_one]), Player.new(params[:name_player_two]))
     redirect '/play'
   end
 
   get '/play' do
-    @p2_HP = 100
     erb :play
   end
 
   get '/attack' do
-    erb :attack
+    $game.attack($game.player_2)
+    $game.change_player
+    erb(:attack)
   end
-
+  # start the server if ruby file executed directly
   run! if app_file == $0
 
 end
