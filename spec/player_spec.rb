@@ -1,6 +1,11 @@
 require 'player'
 
 describe Player do
+
+  before(:all) do
+    srand(67809)
+  end
+
   name = "Joe"
   let(:player) {described_class.new(name)}
 
@@ -13,7 +18,7 @@ describe Player do
   end
 
   it 'HP is reduced by 10 when reeiving damage' do
-    expect{player.receive_damage}.to change {player.health_points}.by(-10)
+    expect{player.receive_damage}.to change {player.health_points}.by(-2)
   end
 
 end
