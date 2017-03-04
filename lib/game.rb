@@ -8,6 +8,14 @@ class Game
     @poison_count = 0
   end
 
+  def self.create(player_1, player_2)
+    @game = Game.new(player_1, player_2)
+  end
+
+  def self.instance
+    @game
+  end
+
   def player_1
     @players.first
   end
@@ -59,14 +67,13 @@ class Game
   end
 
   def check_poisoned_player
-    @poisoned_player.poisoned = false if @poison_count == 0 && @poisoned_player
+    @players.each{ |player| unset_poisoned(player) if @poison_count == 0 && @player}
     @poisoned_player.receive_poison if @poison_count > 0 && @poisoned_player
     @poison_count -= 1 if @poison_count > 0
   end
 
-  def remove_poison(player)
+  def unset_poisoned(player)
     player.poisoned = false
   end
-
 
 end

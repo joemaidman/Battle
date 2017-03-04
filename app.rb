@@ -6,39 +6,43 @@ class Battle < Sinatra::Base
 
   set :sessions, true
 
+  before do
+    @game = Game.instance
+  end
+
   get '/' do
     erb(:index)
   end
 
   post '/names' do
-    $game = Game.new(Player.new(params[:name_player_one]), Player.new(params[:name_player_two]))
+    player_1 = Player.new(params[:name_player_one])
+    player_2 = Player.new(params[:name_player_two])
+    @game = Game.create(player_1, player_2)
     redirect '/play'
   end
 
   get '/play' do
-    $game.change_player
-    p $game.player_1.poisoned?
-    p $game.player_2.poisoned?
+    @game.change_player
     erb :play
   end
 
   get '/attack' do
-    $game.attack($game.opponent_of($game.current_player))
+    @game.attack(@game.opponent_of(@game.current_player))
     erb(:attack)
   end
 
   get '/sleep' do
-    $game.sleepy
+    @game.sleepy
     erb(:sleep)
   end
 
   get '/poison' do
-    $game.poison($game.opponent_of($game.current_player))
+    @game.poison(@game.opponent_of(@game.current_player))
     erb(:poison)
   end
 
   get '/heal' do
-    $game.heal($game.current_player)
+    @game.heal(@game.current_player)
     erb(:heal)
   end
   # start the server if ruby file executed directly

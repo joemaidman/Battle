@@ -4,7 +4,7 @@
    <h3><i>May the paws be with you!</i></h3>
    </br>
    <image class="giphy" src="https://media.giphy.com/media/uUCkfH6eN1RRe/giphy.gif"/>
-   <h1><%= $game.current_player.name %> attacked <%= $game.opponent_of($game.current_player).name %>!</h1>
+   <h1><%= @game.current_player.name %> attacked <%= @game.opponent_of(@game.current_player).name %>!</h1>
    <form action="/play">
       <input class="button" type="submit" value="Next Turn"/>
    </form>

@@ -7,10 +7,10 @@
       <td>
          <img class="giphy" width="300" height="175" src='https://media.giphy.com/media/ce1SY3W8cEXaE/giphy.gif'/>
          <center>
-         <h1><%= $game.player_1.name %></h1>
-         <h4 class="HP" id="p1_hp">HP: <%= $game.player_1.health_points %>
-           <% if $game.player_1.poisoned? == true %>
-            <i class="red_text"> (posioned for <%= $game.poison_count %> turns)</i>
+         <h1><%= @game.player_1.name %></h1>
+         <h4 class="HP" id="p1_hp">HP: <%= @game.player_1.health_points %>
+           <% if @game.player_1.poisoned? == true %>
+            <i class="red_text"> (posioned for <%= @game.poison_count %> turns)</i>
            <% end %>
          </h4>
       </td>
@@ -20,18 +20,18 @@
       <td>
          <img class="giphy" width="300" height="175" src='https://media.giphy.com/media/2QGVy6Ge7BKCc/giphy.gif'/>
          <center>
-            <h1><%= $game.player_2.name %></h1>
-            <h4 class="HP" id="p2_hp">HP: <%= $game.player_2.health_points %>
-              <% if $game.player_2.poisoned? == true %>
-            <i class="red_text"> (posioned for <%= $game.poison_count %> turns)</i>
+            <h1><%= @game.player_2.name %></h1>
+            <h4 class="HP" id="p2_hp">HP: <%= @game.player_2.health_points %>
+              <% if @game.player_2.poisoned? == true %>
+            <i class="red_text"> (posioned for <%= @game.poison_count %> turns)</i>
            <% end %>
             </h4>
       </td>
    </tr>
 </table>
 
-<% if !$game.loser %>
-<h3><%= $game.current_player.name %>, you're up! Choose an action</h3>
+<% if !@game.loser %>
+<h3><%= @game.current_player.name %>, you're up! Choose an action</h3>
 <div id="actions">
    <div>
       <form action="/attack">
@@ -57,7 +57,7 @@
 
 <% else %>
   <h1 class="logo">Game over!</h1>
-  <h2><%= $game.opponent_of($game.loser).name %> won!! Sorry <%= $game.loser.name %> you lost!!</h2>
+  <h2><%= @game.opponent_of(@game.loser).name %> won!! Sorry <%= @game.loser.name %> you lost!!</h2>
 <% end %>
 <form action="/">
    <input class="button" type='submit' value ='New game'>
