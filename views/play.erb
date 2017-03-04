@@ -3,8 +3,12 @@
 <h4 id="p1_hp"><%= $game.player_1.name %> HP: <%= $game.player_1.health_points %></h4>
 <h4 id="p2_hp"><%= $game.player_2.name %> HP: <%= $game.player_2.health_points %></h4>
 <%= $game.current_player.name %>, you're up
+<% if !$game.loser %>
 <div id="actions">
 <form action="/attack">
   <input type='submit' value ='Attack!'>
 </form>
 <div>
+<% else %>
+<h4><%= $game.opponent_of($game.loser).name %> won!! Sorry <%= $game.loser.name %> you lost!!</h4>
+<% end %>
