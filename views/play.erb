@@ -1,14 +1,66 @@
-<h1><%= $game.player_1.name %> <em>VS</em> <%= $game.player_2.name %></h1>
+<link href="<%= url('style.css') %>" rel="stylesheet" type="text/css" />
+<center>
+<h1 class="logo">Star Paws</h1>
+<h3><i>May the paws be with you!</i></h3>
+<table>
+   <tr>
+      <td>
+         <img class="giphy" width="300" height="175" src='https://media.giphy.com/media/ce1SY3W8cEXaE/giphy.gif'/>
+         <center>
+         <h1><%= $game.player_1.name %></h1>
+         <h4 class="HP" id="p1_hp">HP: <%= $game.player_1.health_points %>
+           <% if $game.player_1.poisoned? == true %>
+            <i class="red_text"> (posioned for <%= $game.poison_count %> turns)</i>
+           <% end %>
+         </h4>
+      </td>
+      <td>
+         <h3>VS</h3>
+      </td>
+      <td>
+         <img class="giphy" width="300" height="175" src='https://media.giphy.com/media/2QGVy6Ge7BKCc/giphy.gif'/>
+         <center>
+            <h1><%= $game.player_2.name %></h1>
+            <h4 class="HP" id="p2_hp">HP: <%= $game.player_2.health_points %>
+              <% if $game.player_2.poisoned? == true %>
+            <i class="red_text"> (posioned for <%= $game.poison_count %> turns)</i>
+           <% end %>
+            </h4>
+      </td>
+   </tr>
+</table>
 
-<h4 id="p1_hp"><%= $game.player_1.name %> HP: <%= $game.player_1.health_points %></h4>
-<h4 id="p2_hp"><%= $game.player_2.name %> HP: <%= $game.player_2.health_points %></h4>
-<%= $game.current_player.name %>, you're up
 <% if !$game.loser %>
+<h3><%= $game.current_player.name %>, you're up! Choose an action</h3>
 <div id="actions">
-<form action="/attack">
-  <input type='submit' value ='Attack!'>
-</form>
-<div>
+   <div>
+      <form action="/attack">
+         <input class="button-attack" class="btn" type='submit' value ='Attack'>
+      </form>
+   </div>
+   <div>
+      <form action="/sleep">
+         <input class="button-attack" class="btn" type='submit' value ='Sleep'>
+      </form>
+   </div>
+   <div>
+      <form action="/poison">
+         <input class="button-attack" class="btn" type='submit' value ='Poison'>
+      </form>
+   </div>
+   <div>
+      <form action="/heal">
+         <input class="button-heal" type='submit' value ='Heal'>
+   </div>
+   </form>
+</div>
+
 <% else %>
-<h4><%= $game.opponent_of($game.loser).name %> won!! Sorry <%= $game.loser.name %> you lost!!</h4>
+  <h1 class="logo">Game over!</h1>
+  <h2><%= $game.opponent_of($game.loser).name %> won!! Sorry <%= $game.loser.name %> you lost!!</h2>
 <% end %>
+<form action="/">
+   <input class="button" type='submit' value ='New game'>
+   </div>
+</form>
+</center>

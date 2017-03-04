@@ -1,9 +1,18 @@
-<h1>Welcome to the Battle!</h1>
-<h2>Sign in to play</h2>
-<form id="name_entry" method="POST" action="/names">
-  <label>Player 1:</label>
-  <input name="name_player_one" type="text"/>
-    <label>Player 2:</label>
-  <input name="name_player_two" type="text"/>
-  <input value="Play" type="submit"/>
-</form>
+<link href="<%= url('style.css') %>" rel="stylesheet" type="text/css" />
+<center>
+   <h1 class="logo">Star Paws</h1>
+   <h3><i>May the paws be with you!</i></h3>
+   <img class="giphy" src='https://media.giphy.com/media/Ov5NiLVXT8JEc/giphy.gif'/>
+   <h2>Enter names to play</h2>
+   <form id="name_entry" method="POST" action="/names">
+      <label>Player 1:</label>
+      <input name="name_player_one" type="text"/>
+      </br>
+      </br>
+      <label>Player 2:</label>
+      <input name="name_player_two" type="text"/>
+      </br>
+      </br>
+      <input class="button" value="Play" type="submit"/>
+   </form>
+</center>

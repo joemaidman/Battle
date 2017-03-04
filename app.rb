@@ -17,13 +17,29 @@ class Battle < Sinatra::Base
 
   get '/play' do
     $game.change_player
+    p $game.player_1.poisoned?
+    p $game.player_2.poisoned?
     erb :play
   end
 
   get '/attack' do
     $game.attack($game.opponent_of($game.current_player))
-
     erb(:attack)
+  end
+
+  get '/sleep' do
+    $game.sleepy
+    erb(:sleep)
+  end
+
+  get '/poison' do
+    $game.poison($game.opponent_of($game.current_player))
+    erb(:poison)
+  end
+
+  get '/heal' do
+    $game.heal($game.current_player)
+    erb(:heal)
   end
   # start the server if ruby file executed directly
   run! if app_file == $0
