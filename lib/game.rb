@@ -1,11 +1,12 @@
 class Game
 
-  attr_reader :current_player, :opponent, :poison_count
+  attr_reader :current_player, :opponent, :poison_count, :forced_player
 
   def initialize(player_1, player_2)
     @players = [player_1, player_2]
     @current_player = @players[rand(0..1)]
     @poison_count = 0
+    @forced_player = @current_player
   end
 
   def self.create(player_1, player_2)
@@ -33,8 +34,12 @@ class Game
   end
 
   def poison(poisoned_player)
-    poisoned_player.poisoned = true
-    @poison_count = rand(1..3)
+    poisoned_player.set_poisoned
+  end
+
+  def force
+    @forced_player = @players[rand(0..1)]
+    @forced_player.receive_force
   end
 
   def heal(healed_player)
@@ -44,7 +49,7 @@ class Game
   def change_player
     @current_player = opponent_of(current_player)
     check_missed_turn
-    check_poisoned_player
+    @players.each { |player| player.check_poisoned_player }
   end
 
   def opponent_of(curr_player)
@@ -64,16 +69,6 @@ class Game
   def check_missed_turn
     @current_player = opponent_of(current_player) if @sleepy == true
     @sleepy = false
-  end
-
-  def check_poisoned_player
-    @players.each{ |player| unset_poisoned(player) if @poison_count == 0 && @player}
-    @poisoned_player.receive_poison if @poison_count > 0 && @poisoned_player
-    @poison_count -= 1 if @poison_count > 0
-  end
-
-  def unset_poisoned(player)
-    player.poisoned = false
   end
 
 end

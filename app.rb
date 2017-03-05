@@ -15,9 +15,7 @@ class Battle < Sinatra::Base
   end
 
   post '/names' do
-    player_1 = Player.new(params[:name_player_one])
-    player_2 = Player.new(params[:name_player_two])
-    @game = Game.create(player_1, player_2)
+    @game = Game.create(Player.new(params[:name_player_one]), Player.new(params[:name_player_two]))
     redirect '/play'
   end
 
@@ -39,6 +37,11 @@ class Battle < Sinatra::Base
   get '/poison' do
     @game.poison(@game.opponent_of(@game.current_player))
     erb(:poison)
+  end
+
+  get '/force' do
+    @game.force
+    erb :force
   end
 
   get '/heal' do

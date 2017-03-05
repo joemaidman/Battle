@@ -1,0 +1,18 @@
+
+
+<link href="<%= url('style.css') %>" rel="stylesheet" type="text/css" />
+<center>
+   <h1 class="logo">Star Paws</h1>
+   <h3><i>May the paws be with you!</i></h3>
+   </br>
+     <% if @game.forced_player == @game.current_player %>
+     <image class="giphy" width="350" height="300" src="https://media.giphy.com/media/2awGFT13fn8lO/giphy.gif"/>
+      <h1>Force backfired! <%= @game.current_player.name %> damaged themself!</h1>
+    <% else %>
+    <image class="giphy" width="300" height="300" src="https://media.giphy.com/media/10iNeHlQuouYIo/giphy.gif"/>
+      <h1><%= @game.current_player.name %> used the force on <%= @game.opponent_of(@game.current_player).name %>!</h1>
+    <% end %>
+   <form action="/play">
+      <input class="button" type="submit" value="Next Turn"/>
+   </form>
+</center>

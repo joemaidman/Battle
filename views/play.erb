@@ -7,25 +7,27 @@
       <td>
          <img class="giphy" width="300" height="175" src='https://media.giphy.com/media/ce1SY3W8cEXaE/giphy.gif'/>
          <center>
-         <h1><%= @game.player_1.name %></h1>
-         <h4 class="HP" id="p1_hp">HP: <%= @game.player_1.health_points %>
+           </br>
+           <progress value="<%= @game.player_1.health_points %>" max="100"></progress>
+           <h4 class="HP" id="p1_hp">HP: <%= @game.player_1.health_points %></h4>
+           <h1><%= @game.player_1.name %></h1>
            <% if @game.player_1.poisoned? == true %>
-            <i class="red_text"> (posioned for <%= @game.poison_count %> turns)</i>
+            <i class="red_text"> (posioned for <%= @game.player_1.poison_count %> turns)</i>
            <% end %>
-         </h4>
       </td>
       <td>
          <h3>VS</h3>
       </td>
       <td>
          <img class="giphy" width="300" height="175" src='https://media.giphy.com/media/2QGVy6Ge7BKCc/giphy.gif'/>
-         <center>
-            <h1><%= @game.player_2.name %></h1>
-            <h4 class="HP" id="p2_hp">HP: <%= @game.player_2.health_points %>
+         <<center>
+           </br>
+           <progress value="<%= @game.player_2.health_points %>" max="100"></progress>
+           <h4 class="HP" id="p1_hp">HP: <%= @game.player_2.health_points %></h4>
+           <h1><%= @game.player_2.name %></h1>
               <% if @game.player_2.poisoned? == true %>
-            <i class="red_text"> (posioned for <%= @game.poison_count %> turns)</i>
-           <% end %>
-            </h4>
+              <i class="red_text"> (posioned for <%= @game.player_2.poison_count %> turns)</i>
+              <% end %>
       </td>
    </tr>
 </table>
@@ -46,6 +48,11 @@
    <div>
       <form action="/poison">
          <input class="button-attack" class="btn" type='submit' value ='Poison'>
+      </form>
+   </div>
+   <div>
+      <form action="/force">
+         <input class="button-attack" class="btn" type='submit' value ='Force'>
       </form>
    </div>
    <div>
