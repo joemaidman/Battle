@@ -25,6 +25,13 @@ Makers Academy Week 3 challenge designed to cover HTTP, response-request mechani
 - Run `rackup`
 - Visit `localhost:9292` in your browser
 
+### Screenshots
+Playing a game
+![play](https://github.com/joemaidman/star-paws/blob/master/screenshots/play.png)
+
+Attacking move
+![play](https://github.com/joemaidman/star-paws/blob/master/screenshots/attack.png)
+
 ### Contributors
 - Ashwini Mani
 - Narayan O'Hanlon
