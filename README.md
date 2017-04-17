@@ -1,4 +1,4 @@
-# Star Paws
+# Star Paws [![Build Status](https://travis-ci.org/joemaidman/Star-Paws.svg?branch=master)](https://travis-ci.org/joemaidman/Star-Paws) [![Coverage Status](https://coveralls.io/repos/github/joemaidman/Battle/badge.svg?branch=master)](https://coveralls.io/github/joemaidman/Battle?branch=master)
 
 Makers Academy Week 3 challenge designed to cover HTTP, response-request mechanisms, Sinatra, RSpec and Capybara by creating a simple turn based browser fighting game. A demo is available at https://starpaws.herokuapp.com/
 
