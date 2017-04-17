@@ -1,6 +1,6 @@
 ### Star Paws ###
 
-Makers Academy Week 3 challenge designed to cover HTTP, response-request mechanisms, Sinatra, RSpec and Capybara by creating a simple turn based browser fighting game.
+Makers Academy Week 3 challenge designed to cover HTTP, response-request mechanisms, Sinatra, RSpec and Capybara by creating a simple turn based browser fighting game. A demo is available at https://starpaws.herokuapp.com/
 
 ### Technologies Used
 - Rspec

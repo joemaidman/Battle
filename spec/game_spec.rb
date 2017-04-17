@@ -1,8 +1,8 @@
 require 'game'
 
 describe Game do
-  let(:player_1) {double(:player_1)}
-  let(:player_2) {double(:player_2)}
+  let(:player_1) {double :player_1, check_poisoned_player: false}
+  let(:player_2) {double :player_2 , check_poisoned_player: false}
 
   before(:all) do
     srand(67809)

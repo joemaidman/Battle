@@ -23,7 +23,7 @@
          <<center>
            </br>
            <progress value="<%= @game.player_2.health_points %>" max="100"></progress>
-           <h4 class="HP" id="p1_hp">HP: <%= @game.player_2.health_points %></h4>
+           <h4 class="HP" id="p2_hp">HP: <%= @game.player_2.health_points %></h4>
            <h1><%= @game.player_2.name %></h1>
               <% if @game.player_2.poisoned? == true %>
               <i class="red_text"> (posioned for <%= @game.player_2.poison_count %> turns)</i>
