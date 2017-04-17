@@ -17,7 +17,7 @@ describe Player do
     expect(player.health_points).to eq described_class::DEFAULT_HP
   end
 
-  it 'HP is reduced by 10 when reeiving damage' do
+  it 'HP is reduced by 10 when receiving damage' do
     expect{player.receive_damage}.to change {player.health_points}.by(-2)
   end
 
