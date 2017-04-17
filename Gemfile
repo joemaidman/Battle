@@ -7,4 +7,5 @@ gem 'capybara'
 gem 'rspec-sinatra'
 gem 'shotgun'
 gem 'rerun'
+gem 'rspec'
 gem 'coveralls', require: false
